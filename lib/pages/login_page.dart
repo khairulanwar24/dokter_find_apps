@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
           children: [
             Image.asset(
               'assets/icon_nexa.png',
-              width: 520,
+              width: 420,
             ),
             SizedBox(
               height: 6,
@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
                 child: Row(
                   children: [
                     Image.asset(
-                      'assets/icon_profile.png',
+                      'assets/icon_password.png',
                       width: 17,
                     ),
                     SizedBox(
@@ -114,6 +114,34 @@ class LoginPage extends StatelessWidget {
       );
     }
 
+    Widget loginButton() {
+      return Container(
+        height: 50,
+        width: 195,
+        margin: EdgeInsets.only(
+          top: 50,
+        ),
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          child: Text(
+            'Masuk',
+            style: whiteColorStyle.copyWith(
+              fontSize: 18,
+              fontWeight: reguler,
+            ),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -126,6 +154,7 @@ class LoginPage extends StatelessWidget {
                 header(),
                 emailInput(),
                 passwordInput(),
+                loginButton(),
               ],
             ),
           ),
