@@ -11,6 +11,8 @@ Color nameColor = Color(0xff0D1B34);
 Color primaryTextColor = Color(0xff8696BB);
 Color secondaryTextColor = Color(0xff63B4FF);
 
+Color backgroundColor2 = Color(0xffFAFAFA);
+
 TextStyle primaryTextStyle = GoogleFonts.poppins(
   color: primaryTextColor,
 );
