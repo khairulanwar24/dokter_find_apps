@@ -177,11 +177,105 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget medicalServices() {
+      return Container(
+        margin: EdgeInsets.only(
+          left: defaultMargin,
+          right: defaultMargin,
+          top: 24,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: CircleAvatar(
+                    radius: 28,
+                    backgroundColor: backgroundColor2,
+                    child: Padding(
+                      padding: EdgeInsets.all(12),
+                      child: Image.asset(
+                        width: 24,
+                        'assets/icon_doctor_add.png',
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  'Dokter',
+                  style: primaryTextStyle.copyWith(
+                      fontSize: 15, fontWeight: reguler),
+                )
+              ],
+            ),
+            Column(
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: CircleAvatar(
+                    radius: 28,
+                    backgroundColor: backgroundColor2,
+                    child: Padding(
+                      padding: EdgeInsets.all(12),
+                      child: Image.asset(
+                        width: 24,
+                        'assets/icon_drugs_prescriptions.png',
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  'Obat & Resep',
+                  style: primaryTextStyle.copyWith(
+                      fontSize: 15, fontWeight: reguler),
+                )
+              ],
+            ),
+            Column(
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: CircleAvatar(
+                    radius: 28,
+                    backgroundColor: backgroundColor2,
+                    child: Padding(
+                      padding: EdgeInsets.all(12),
+                      child: Image.asset(
+                        width: 24,
+                        'assets/icon_hospital.png',
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  'Rumah Sakit',
+                  style: primaryTextStyle.copyWith(
+                      fontSize: 15, fontWeight: reguler),
+                )
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         nearestDoctor(),
         searchDoctorSpecialist(),
+        medicalServices()
       ],
     );
   }
