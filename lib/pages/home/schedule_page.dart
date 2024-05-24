@@ -128,7 +128,7 @@ class SchedulePage extends StatelessWidget {
                   style: primaryTextStyle.copyWith(
                       fontSize: 14, fontWeight: reguler),
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset(
                   width: 16,
                   height: 16,

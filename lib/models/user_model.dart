@@ -1,7 +1,7 @@
 class UserModel {
-  String? username;
-  String? password; // Nullable field
-  String? token;
+  final String username;
+  final String password; // Nullable field
+  final String token;
 
   UserModel({
     required this.username,
@@ -9,14 +9,10 @@ class UserModel {
     required this.token,
   });
 
-  UserModel.fromJson(Map<String, dynamic> json) {
-    username = json['username'];
-    password = json['password'];
-    token = json['token'];
-  }
-
-  //untuk model dijadikan ke json
-  Map<String, dynamic> toJson() {
-    return {'username': username, 'password': password, 'token': token};
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+        username: json['username'],
+        password: json['password'],
+        token: json['token']);
   }
 }

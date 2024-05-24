@@ -1,11 +1,51 @@
+import 'package:dokter_find_apps/providers/auth_provider.dart';
 import 'package:dokter_find_apps/themes/theme.dart';
+import 'package:dokter_find_apps/widgets/loading_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController usernameController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+
+  bool isLoading = false;
+  @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    handleLogin() async {
+      setState(() {
+        isLoading = true;
+      });
+
+      if (await authProvider.login(
+        username: usernameController.text,
+        password: passwordController.text,
+      )) {
+        Navigator.pushNamed(context, '/home');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.amber,
+            content: Text(
+              'Gagal Login',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      }
+
+      setState(() {
+        isLoading = false;
+      });
+    }
+
     Widget header() {
       return Container(
         margin: const EdgeInsets.only(
@@ -58,8 +98,11 @@ class LoginPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: TextFormField(
+                        controller: usernameController,
                         decoration: InputDecoration.collapsed(
-                            hintText: 'Username', hintStyle: primaryTextStyle),
+                          hintText: 'Username',
+                          hintStyle: primaryTextStyle,
+                        ),
                       ),
                     )
                   ],
@@ -100,6 +143,7 @@ class LoginPage extends StatelessWidget {
                     Expanded(
                       child: TextFormField(
                         obscureText: true,
+                        controller: passwordController,
                         decoration: InputDecoration.collapsed(
                             hintText: 'Password', hintStyle: primaryTextStyle),
                       ),
@@ -122,7 +166,7 @@ class LoginPage extends StatelessWidget {
         ),
         child: TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/home');
+            handleLogin();
           },
           style: TextButton.styleFrom(
             backgroundColor: primaryColor,
@@ -153,7 +197,7 @@ class LoginPage extends StatelessWidget {
                 header(),
                 emailInput(),
                 passwordInput(),
-                loginButton(),
+                isLoading ? const LoadingButton() : loginButton(),
               ],
             ),
           ),
