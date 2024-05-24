@@ -121,7 +121,9 @@ class HomePage extends StatelessWidget {
                 ),
                 Spacer(),
                 Image.asset(
-                  'assets/assets/icon_clockincard.dart',
+                  width: 16,
+                  height: 16,
+                  'assets/icon_clockincard.png',
                 ),
                 SizedBox(width: 8),
                 Text(
@@ -138,10 +140,48 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget searchDoctorSpecialist() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 20,
+          left: defaultMargin,
+          right: defaultMargin,
+        ),
+        padding: EdgeInsets.all(
+          16.5,
+        ),
+        decoration: BoxDecoration(
+          color: backgroundColor2,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          children: [
+            Image.asset(
+              width: 24,
+              height: 24,
+              'assets/icon_search.png',
+            ),
+            SizedBox(
+              width: 12,
+            ),
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration.collapsed(
+                  hintText: 'Cari Dokter Spesialis',
+                  hintStyle: primaryTextStyle,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         nearestDoctor(),
+        searchDoctorSpecialist(),
       ],
     );
   }
