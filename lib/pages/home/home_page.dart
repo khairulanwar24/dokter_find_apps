@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
       );
     }
 
-    Widget nearestDoctor() {
+    Widget generalDoctor() {
       return Container(
         margin: EdgeInsets.symmetric(
           horizontal: defaultMargin,
@@ -270,12 +270,133 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget nearestDoctorTitle() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 32,
+          left: defaultMargin,
+          right: defaultMargin,
+        ),
+        child: Text(
+          'Dokter Terdekat',
+          style: blackColorStyle.copyWith(
+            fontSize: 16,
+            fontWeight: semiBold,
+          ),
+        ),
+      );
+    }
+
+    Widget nearestDoctor() {
+      return Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+          vertical: 16,
+        ),
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 28,
+                  backgroundImage: AssetImage('assets/dr_imron.png'),
+                ),
+                SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Dr. Budi Santoso',
+                        style: blackColorStyle.copyWith(
+                          fontSize: 18,
+                          fontWeight: bold,
+                        ),
+                      ),
+                      Text(
+                        'Dokter Umum',
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 14,
+                          fontWeight: reguler,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                        width: 16, height: 16, 'assets/icon_location.png'),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      '1.2 KM',
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 14,
+                        fontWeight: reguler,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            Divider(
+              color: bgColor3.withOpacity(0.5),
+              thickness: 1,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  width: 16,
+                  height: 16,
+                  'assets/icon_clock.png',
+                  color: orangeColor,
+                ),
+                SizedBox(width: 8),
+                Text(
+                  '4.8 (120 Reviews)',
+                  style: orangeColorStyle.copyWith(
+                    fontSize: 12,
+                    fontWeight: reguler,
+                  ),
+                ),
+                Spacer(),
+                Image.asset(
+                  width: 16,
+                  height: 16,
+                  color: primaryColor,
+                  'assets/icon_clock.png',
+                ),
+                SizedBox(width: 8),
+                Text(
+                  'Open at 17.00',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 12,
+                    fontWeight: reguler,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
-        nearestDoctor(),
+        generalDoctor(),
         searchDoctorSpecialist(),
-        medicalServices()
+        medicalServices(),
+        nearestDoctorTitle(),
+        nearestDoctor(),
       ],
     );
   }

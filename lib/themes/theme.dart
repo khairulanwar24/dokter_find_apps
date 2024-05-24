@@ -15,6 +15,8 @@ Color cardNameJob = Color(0xffCBE1FF);
 Color backgroundColor2 = Color(0xffFAFAFA);
 Color whiteColor = Color.fromARGB(255, 255, 255, 255);
 Color blackColor = Color.fromARGB(255, 0, 0, 0);
+Color orangeColor = Color(0xffFEB052);
+Color bgColor3 = Color(0xffF5F5F5);
 
 TextStyle primaryTextStyle = GoogleFonts.poppins(
   color: primaryTextColor,
@@ -36,7 +38,9 @@ TextStyle blackColorStyle = GoogleFonts.poppins(
 TextStyle carNameJobStyle = GoogleFonts.poppins(
   color: cardNameJob,
 );
-
+TextStyle orangeColorStyle = GoogleFonts.poppins(
+  color: orangeColor,
+);
 FontWeight reguler = FontWeight.w400;
 FontWeight medium = FontWeight.w500;
 FontWeight semiBold = FontWeight.w600;
