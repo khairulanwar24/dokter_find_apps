@@ -17,6 +17,7 @@ Color whiteColor = Color.fromARGB(255, 255, 255, 255);
 Color blackColor = Color.fromARGB(255, 0, 0, 0);
 Color orangeColor = Color(0xffFEB052);
 Color bgColor3 = Color(0xffF5F5F5);
+Color transparentColor = Colors.transparent;
 
 TextStyle primaryTextStyle = GoogleFonts.poppins(
   color: primaryTextColor,
@@ -41,6 +42,10 @@ TextStyle carNameJobStyle = GoogleFonts.poppins(
 TextStyle orangeColorStyle = GoogleFonts.poppins(
   color: orangeColor,
 );
+TextStyle transparentStyle = GoogleFonts.poppins(
+  color: transparentColor,
+);
+
 FontWeight reguler = FontWeight.w400;
 FontWeight medium = FontWeight.w500;
 FontWeight semiBold = FontWeight.w600;

@@ -1,4 +1,4 @@
-import 'package:dokter_find_apps/pages/home/calender_page.dart';
+import 'package:dokter_find_apps/pages/home/schedule_page.dart';
 import 'package:dokter_find_apps/pages/home/home_page.dart';
 import 'package:dokter_find_apps/pages/home/message_page.dart';
 import 'package:dokter_find_apps/pages/home/profile_page.dart';
@@ -35,7 +35,7 @@ class _MainPageState extends State<MainPage> {
           decoration: BoxDecoration(
               color: isSelected
                   ? Color.fromRGBO(99, 180, 255, 0.1)
-                  : Colors.transparent,
+                  : transparentColor,
               borderRadius: BorderRadius.circular(12)),
           child: Row(
             children: [
@@ -82,7 +82,7 @@ class _MainPageState extends State<MainPage> {
           return HomePage();
           break;
         case 1:
-          return CalenderPage();
+          return SchedulePage();
           break;
         case 2:
           return MessagePage();
