@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
     Widget customBottomNav() {
       print(currentIndex);
       return Container(
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         color: whiteColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
