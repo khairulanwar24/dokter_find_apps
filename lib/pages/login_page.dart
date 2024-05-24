@@ -1,6 +1,5 @@
 import 'package:dokter_find_apps/themes/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -9,7 +8,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget header() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 36,
           left: 20,
           right: 20,
@@ -20,7 +19,7 @@ class LoginPage extends StatelessWidget {
               'assets/icon_nexa.png',
               width: 420,
             ),
-            SizedBox(
+            const SizedBox(
               height: 6,
             ),
             Text('Kesehatan adalah Aset Berharga',
@@ -33,14 +32,14 @@ class LoginPage extends StatelessWidget {
 
     Widget emailInput() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 58,
         ),
         child: Column(
           children: [
             Container(
               height: 56,
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 16,
               ),
               decoration: BoxDecoration(
@@ -54,7 +53,7 @@ class LoginPage extends StatelessWidget {
                       'assets/icon_profile.png',
                       width: 17,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 12,
                     ),
                     Expanded(
@@ -74,14 +73,14 @@ class LoginPage extends StatelessWidget {
 
     Widget passwordInput() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 41,
         ),
         child: Column(
           children: [
             Container(
               height: 56,
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 16,
               ),
               decoration: BoxDecoration(
@@ -95,7 +94,7 @@ class LoginPage extends StatelessWidget {
                       'assets/icon_password.png',
                       width: 17,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 12,
                     ),
                     Expanded(
@@ -118,7 +117,7 @@ class LoginPage extends StatelessWidget {
       return Container(
         height: 50,
         width: 195,
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 50,
         ),
         child: TextButton(

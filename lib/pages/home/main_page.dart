@@ -31,10 +31,10 @@ class _MainPageState extends State<MainPage> {
       return GestureDetector(
         onTap: () => onItemTapped(index),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
               color: isSelected
-                  ? Color.fromRGBO(99, 180, 255, 0.1)
+                  ? const Color.fromRGBO(99, 180, 255, 0.1)
                   : transparentColor,
               borderRadius: BorderRadius.circular(12)),
           child: Row(
@@ -43,7 +43,7 @@ class _MainPageState extends State<MainPage> {
                 currentIndex == index ? activeIcon : icon,
                 width: 24,
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               if (currentIndex == index)
                 Text(
                   label,
@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
     Widget customBottomNav() {
       print(currentIndex);
       return Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         color: whiteColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -79,19 +79,19 @@ class _MainPageState extends State<MainPage> {
     Widget body() {
       switch (currentIndex) {
         case 0:
-          return HomePage();
+          return const HomePage();
           break;
         case 1:
-          return SchedulePage();
+          return const SchedulePage();
           break;
         case 2:
-          return MessagePage();
+          return const MessagePage();
           break;
         case 3:
-          return ProfilePage();
+          return const ProfilePage();
           break;
         default:
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
       }
     }
 

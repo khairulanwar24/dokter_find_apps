@@ -1,7 +1,5 @@
 import 'package:dokter_find_apps/themes/theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,7 +35,7 @@ class HomePage extends StatelessWidget {
             Container(
               width: 56,
               height: 56,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage(
@@ -57,9 +55,9 @@ class HomePage extends StatelessWidget {
           horizontal: defaultMargin,
           vertical: 20,
         ),
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Color(0xFF63B4FF),
+          color: const Color(0xFF63B4FF),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -67,11 +65,11 @@ class HomePage extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 28,
                   backgroundImage: AssetImage('assets/dr_imron.png'),
                 ),
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,13 +91,13 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.chevron_right,
                   color: Colors.white,
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Divider(
               color: Colors.white.withOpacity(0.5),
               thickness: 1,
@@ -111,7 +109,7 @@ class HomePage extends StatelessWidget {
                   height: 16,
                   'assets/icon_calenderincard.png',
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text(
                   'Sunday, 12 June',
                   style: whiteColorStyle.copyWith(
@@ -119,13 +117,13 @@ class HomePage extends StatelessWidget {
                     fontWeight: reguler,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset(
                   width: 16,
                   height: 16,
                   'assets/icon_clockincard.png',
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text(
                   '11:00 - 12:00 AM',
                   style: whiteColorStyle.copyWith(
@@ -147,7 +145,7 @@ class HomePage extends StatelessWidget {
           left: defaultMargin,
           right: defaultMargin,
         ),
-        padding: EdgeInsets.all(
+        padding: const EdgeInsets.all(
           16.5,
         ),
         decoration: BoxDecoration(
@@ -161,7 +159,7 @@ class HomePage extends StatelessWidget {
               height: 24,
               'assets/icon_search.png',
             ),
-            SizedBox(
+            const SizedBox(
               width: 12,
             ),
             Expanded(
@@ -195,7 +193,7 @@ class HomePage extends StatelessWidget {
                     radius: 28,
                     backgroundColor: backgroundColor2,
                     child: Padding(
-                      padding: EdgeInsets.all(12),
+                      padding: const EdgeInsets.all(12),
                       child: Image.asset(
                         width: 24,
                         'assets/icon_doctor_add.png',
@@ -203,7 +201,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Text(
@@ -221,7 +219,7 @@ class HomePage extends StatelessWidget {
                     radius: 28,
                     backgroundColor: backgroundColor2,
                     child: Padding(
-                      padding: EdgeInsets.all(12),
+                      padding: const EdgeInsets.all(12),
                       child: Image.asset(
                         width: 24,
                         'assets/icon_drugs_prescriptions.png',
@@ -229,7 +227,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Text(
@@ -247,7 +245,7 @@ class HomePage extends StatelessWidget {
                     radius: 28,
                     backgroundColor: backgroundColor2,
                     child: Padding(
-                      padding: EdgeInsets.all(12),
+                      padding: const EdgeInsets.all(12),
                       child: Image.asset(
                         width: 24,
                         'assets/icon_hospital.png',
@@ -255,7 +253,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Text(
@@ -293,7 +291,7 @@ class HomePage extends StatelessWidget {
           horizontal: defaultMargin,
           vertical: 16,
         ),
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -302,11 +300,11 @@ class HomePage extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 28,
                   backgroundImage: AssetImage('assets/dr_imron.png'),
                 ),
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -332,7 +330,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Image.asset(
                         width: 16, height: 16, 'assets/icon_location.png'),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Text(
@@ -346,7 +344,7 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Divider(
               color: bgColor3.withOpacity(0.5),
               thickness: 1,
@@ -359,7 +357,7 @@ class HomePage extends StatelessWidget {
                   'assets/icon_clock.png',
                   color: orangeColor,
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text(
                   '4.8 (120 Reviews)',
                   style: orangeColorStyle.copyWith(
@@ -367,14 +365,14 @@ class HomePage extends StatelessWidget {
                     fontWeight: reguler,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset(
                   width: 16,
                   height: 16,
                   color: primaryColor,
                   'assets/icon_clock.png',
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text(
                   'Open at 17.00',
                   style: primaryTextStyle.copyWith(
