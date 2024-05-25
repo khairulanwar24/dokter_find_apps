@@ -3,14 +3,15 @@ import 'package:dokter_find_apps/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  String baseUrl = 'https://nexacaresys.codeplay.id/api/login';
+  String baseUrl = 'https://nexacaresys.codeplay.id/api';
 
   Future<UserModel> login({
     required String username,
     required String password,
   }) async {
     // Define the endpoint
-    var url = Uri.parse(baseUrl); // Mengonversi URL ke tipe Uri
+    var url = Uri.parse('$baseUrl/login');
+    var headers = {'Content-Type': 'application/json'};
 
     // Create the request body
     var body = jsonEncode({
@@ -18,41 +19,40 @@ class AuthService {
       'password': password,
     });
 
-    var response = await http.post(
+    var responses = await http.post(
       url,
+      headers: headers,
       body: body,
     );
 
     // Cek  status response
-    if (response.statusCode == 200) {
+    if (responses.statusCode == 200) {
       // Parsing response untuk mendapatkan token
-      var data = jsonDecode(response.body);
+      var data = jsonDecode(responses.body);
       var token = data['response']['token'];
-
-      // Membuat UserModel dari token
-      var user = UserModel(
-          token: token, username: 'testeruser', password: 'rekrutnexa24');
+      UserModel user =
+          UserModel(username: username, password: password, token: token);
       return user;
     } else {
       throw Exception('Failed to login');
     }
   }
 
-  static Future<bool> authenticate(String username, String password) async {
-    try {
-      // Di sini Anda bisa menuliskan logika autentikasi yang sesuai
-      // Misalnya, Anda bisa memeriksa kredensial di basis data atau memanggil API untuk verifikasi
+  // static Future<bool> authenticate(String username, String password) async {
+  //   try {
+  //     // Di sini Anda bisa menuliskan logika autentikasi yang sesuai
+  //     // Misalnya, Anda bisa memeriksa kredensial di basis data atau memanggil API untuk verifikasi
 
-      // Contoh sederhana: Jika username adalah "admin" dan password adalah "admin123", kembalikan true
-      if (username == 'admin' && password == 'admin123') {
-        return true;
-      } else {
-        return false;
-      }
-    } catch (e) {
-      // Tangani kesalahan jika terjadi
-      print('Error during authentication: $e');
-      return false;
-    }
-  }
+  //     // Contoh sederhana: Jika username adalah "admin" dan password adalah "admin123", kembalikan true
+  //     if (username == 'admin' && password == 'admin123') {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   } catch (e) {
+  //     // Tangani kesalahan jika terjadi
+  //     print('Error during authentication: $e');
+  //     return false;
+  //   }
+  // }
 }

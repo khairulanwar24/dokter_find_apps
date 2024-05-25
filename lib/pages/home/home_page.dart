@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                         fontSize: 16, fontWeight: reguler),
                   ),
                   Text(
-                    'Dimas Oxva',
+                    'DimasOxva',
                     style: blackColorStyle.copyWith(
                         fontSize: 20, fontWeight: bold),
                   ),

@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            backgroundColor: Colors.amber,
+            backgroundColor: Colors.redAccent,
             content: Text(
               'Gagal Login',
               textAlign: TextAlign.center,

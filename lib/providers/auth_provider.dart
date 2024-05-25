@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 class AuthProvider with ChangeNotifier {
   late UserModel _user;
 
-  AuthProvider() {
-    _user = UserModel(username: '', password: '', token: '');
-  }
+  // AuthProvider() {
+  //   _user = UserModel(username: '', password: '', token: '');
+  // }
 
   UserModel get user => _user;
 
@@ -21,21 +21,28 @@ class AuthProvider with ChangeNotifier {
     required String password,
   }) async {
     try {
-      // Lakukan logika autentikasi di sini
-      // Misalnya, Anda dapat memanggil layanan autentikasi untuk memeriksa username dan password
-      bool isAuthenticated = await AuthService.authenticate(username, password);
+      UserModel user = await AuthService().login(
+        username: username,
+        password: password,
+      );
 
-      // Jika autentikasi berhasil, set user dan kembalikan true
-      if (isAuthenticated) {
-        _user = UserModel(username: username, password: password, token: '');
-        return true;
-      } else {
-        // Jika autentikasi gagal, kembalikan false
-        return false;
-      }
+      _user = user;
+      return true;
+      // // Lakukan logika autentikasi di sini
+      // // Misalnya, Anda dapat memanggil layanan autentikasi untuk memeriksa username dan password
+      // bool isAuthenticated = await AuthService.authenticate(username, password);
+
+      // // Jika autentikasi berhasil, set user dan kembalikan true
+      // if (isAuthenticated) {
+      //   _user = UserModel(username: username, password: password, token: '');
+      //   return true;
+      // } else {
+      //   // Jika autentikasi gagal, kembalikan false
+      //   return false;
+      // }
     } catch (e) {
       // Tangani kesalahan jika terjadi
-      print('Error during login: $e');
+      print(e);
       return false;
     }
   }
