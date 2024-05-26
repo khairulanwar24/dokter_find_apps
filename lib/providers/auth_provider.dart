@@ -1,49 +1,37 @@
 import 'package:dokter_find_apps/models/user_model.dart';
 import 'package:dokter_find_apps/services/auth_service.dart';
-import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart';
 
 class AuthProvider with ChangeNotifier {
-  late UserModel _user;
+  UserModel? _user;
 
-  // AuthProvider() {
-  //   _user = UserModel(username: '', password: '', token: '');
-  // }
+  UserModel get user => _user!;
 
-  UserModel get user => _user;
-
-  set user(UserModel user) {
-    _user = user;
-    notifyListeners();
-  }
-
-  Future<bool> login({
-    required String username,
-    required String password,
-  }) async {
+  Future<bool> login(
+      {required String username, required String password}) async {
     try {
-      UserModel user = await AuthService().login(
-        username: username,
-        password: password,
-      );
+      AuthService authService = AuthService();
+      UserModel user =
+          await authService.login(username: username, password: password);
+
+      // Simpan token di SharedPreferences
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', user.token);
 
       _user = user;
+      notifyListeners();
       return true;
-      // // Lakukan logika autentikasi di sini
-      // // Misalnya, Anda dapat memanggil layanan autentikasi untuk memeriksa username dan password
-      // bool isAuthenticated = await AuthService.authenticate(username, password);
-
-      // // Jika autentikasi berhasil, set user dan kembalikan true
-      // if (isAuthenticated) {
-      //   _user = UserModel(username: username, password: password, token: '');
-      //   return true;
-      // } else {
-      //   // Jika autentikasi gagal, kembalikan false
-      //   return false;
-      // }
     } catch (e) {
-      // Tangani kesalahan jika terjadi
       print(e);
       return false;
     }
+  }
+
+  Future<void> logout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('token');
+    _user = null;
+    notifyListeners();
   }
 }

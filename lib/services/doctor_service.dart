@@ -1,25 +1,26 @@
 import 'dart:convert';
-
 import 'package:dokter_find_apps/models/doctors_model.dart';
 import 'package:http/http.dart' as http;
 
-class ProductService {
+class DoctorService {
   String baseUrl = 'https://nexacaresys.codeplay.id/api';
 
-  Future<List<DoctorModel>> getDoctor() async {
-    var url = Uri.parse('$baseUrl/doctor');
+  Future<List<DoctorModel>> getDoctors({required String token}) async {
+    var url = Uri.parse('$baseUrl/doctors');
+    var headers = {
+      'Content-Type': 'application/json',
+      'token': token, // Send token without 'Bearer'
+    };
 
-    var headers = {'Content-Type': 'application/json'};
-    var responses = await http.post(url, headers: headers);
+    var response = await http.get(url, headers: headers);
+    print('Headers: $headers');
+    print('Response Status: ${response.statusCode}');
+    print('Response Body: ${response.body}');
 
-    print(responses.body);
-    if (responses.statusCode == 200) {
-      List data = jsonDecode(responses.body);
-      List<DoctorModel> doctors = [];
-
-      for (var item in data) {
-        doctors.add(DoctorModel.fromJson(item));
-      }
+    if (response.statusCode == 200) {
+      List data = jsonDecode(response.body)['response']['data'];
+      List<DoctorModel> doctors =
+          data.map((item) => DoctorModel.fromJson(item)).toList();
       return doctors;
     } else {
       throw Exception('Failed to load doctors');

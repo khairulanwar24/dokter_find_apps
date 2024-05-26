@@ -12,6 +12,7 @@ class AuthService {
     // Define the endpoint
     var url = Uri.parse('$baseUrl/login');
     var headers = {'Content-Type': 'application/json'};
+    print('Headers auth: $headers');
 
     // Create the request body
     var body = jsonEncode({
@@ -24,6 +25,8 @@ class AuthService {
       headers: headers,
       body: body,
     );
+    print('Response status suth: ${responses.statusCode}');
+    print('Response Body: ${responses.body}');
 
     // Cek  status response
     if (responses.statusCode == 200) {

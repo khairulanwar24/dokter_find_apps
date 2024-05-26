@@ -1,4 +1,5 @@
 import 'package:dokter_find_apps/providers/auth_provider.dart';
+import 'package:dokter_find_apps/providers/doctors_provider.dart';
 import 'package:dokter_find_apps/themes/theme.dart';
 import 'package:dokter_find_apps/widgets/loading_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    DoctorProvider doctorProvider = Provider.of<DoctorProvider>(context);
     handleLogin() async {
       setState(() {
         isLoading = true;
@@ -28,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         username: usernameController.text,
         password: passwordController.text,
       )) {
+        await doctorProvider.getDoctors();
         Navigator.pushNamed(context, '/home');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
